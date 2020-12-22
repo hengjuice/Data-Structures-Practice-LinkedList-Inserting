@@ -187,6 +187,23 @@ void printNthFromLast(Node *head, int position){
     return;
 }
 
+void printMiddle(Node* head){
+    if(head!=NULL){
+        cout<<"Linkedlist does not exist"<<endl;
+        return;
+    }
+    /*Traverse linked list using two pointers. Move one pointer by one and the other pointers by two. 
+    When the fast pointer reaches the end slow pointer will reach the middle of the linked list.*/
+    Node* slow = head;
+    Node* fast = head;
+    while(temp!=NULL && temp->next !=NULL){
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    cout<<slow->data<<endl;
+    return;
+}
+
 int main()
 {
     Node* head = NULL;  
