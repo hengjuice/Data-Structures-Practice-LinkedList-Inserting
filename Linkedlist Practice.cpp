@@ -231,6 +231,6 @@ int main()
     //search(head, 13)? cout<<"Yes, it exists in LinkedList"<<endl : cout<<"No, it doesn't exist in LinkedList"<<endl;
     //cout<<"Value at Position 3 is: "<<getNth(head,3)<<endl;
     
-    printNthFromLast(head,5);
+    //printNthFromLast(head,5);
     return 0; 
 }
