@@ -188,7 +188,7 @@ void printNthFromLast(Node *head, int position){
 }
 
 void printMiddle(Node* head){
-    if(head!=NULL){
+    if(head==NULL){
         cout<<"Linkedlist does not exist"<<endl;
         return;
     }
@@ -201,6 +201,18 @@ void printMiddle(Node* head){
         slow = slow->next;
     }
     cout<<"Middle Node is: "<<slow->data<<endl;
+    return;
+}
+
+void countKey(Node* head, int key){
+    Node* temp = head;
+    int count = 0;
+    while(temp!=NULL){
+        if(temp->data == key)
+            count+=1;
+        temp = temp->next;
+    }
+    cout<<"No of "<<key<<"s in the Linked List: "<<count<<endl;
     return;
 }
 
@@ -225,7 +237,12 @@ int main()
       
     // Insert 8, after 7. So linked  
     // list becomes 1->7->8->6->4->NULL  
-    appendMiddle(head->next, 8);  
+    appendMiddle(head->next, 8);
+    
+    // list becomes 2->1->7->5->8->6->4->11->NULL
+    // appendEnd(&head,6);
+    // appendMiddle(head->next, 6);
+    // appendFront(&head, 8);
       
     cout<<"Created Linked list is: "<<endl;  
     printList(head);  
@@ -249,5 +266,9 @@ int main()
     //cout<<"Value at Position 3 is: "<<getNth(head,3)<<endl;
     
     //printNthFromLast(head,5);
+    //printMiddle(head);
+    // countKey(head,6);
+    // countKey(head,8);
+    
     return 0; 
 }
