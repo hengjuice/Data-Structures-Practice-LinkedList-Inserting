@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 using namespace std;
 
@@ -145,6 +143,50 @@ int lengthOfListRecursive(Node* head){
     return 1+lengthOfListRecursive(head->next);
 }
 
+bool search(Node *head, int key){
+    Node* temp = head;
+    
+    while(temp!=NULL){
+        if(temp->data == key){
+            return true;
+        }
+        temp = temp->next;
+    }
+    return false;
+}
+
+int getNth(Node *head, int position){
+    Node* temp = head;
+    for(int i=0; i<position-1; i++){
+        if(temp == NULL){
+            return -1;
+        }
+        temp = temp->next;
+    }
+    return temp->data;
+    
+}
+
+void printNthFromLast(Node *head, int position){
+    Node* temp = head;
+    Node* temp2 = head;
+    int count = 0;
+    while(temp!=NULL){
+        count+=1; //length of linked list;
+        temp = temp->next;
+    }
+    if(position>count){
+        cout<<"Doesn't exist!"<<endl;
+        return;
+    }
+    int key = count - position;
+    for(int j=0; j<key; j++){
+        temp2 = temp2->next;
+    }
+    cout<<"Nth from last: "<<temp2->data<<endl;
+    return;
+}
+
 int main()
 {
     Node* head = NULL;  
@@ -183,6 +225,12 @@ int main()
     //printList(head);
     
     //lengthOfListIterative(head);
-    cout<< "Length of LinkedList: "<<lengthOfListRecursive(head)<<endl;
+    //cout<< "Length of LinkedList: "<<lengthOfListRecursive(head)<<endl;
+    
+    //search(head, 8)? cout<<"Yes, it exists in LinkedList"<<endl: cout<<"No, it doesn't exist in LinkedList"<<endl;
+    //search(head, 13)? cout<<"Yes, it exists in LinkedList"<<endl : cout<<"No, it doesn't exist in LinkedList"<<endl;
+    //cout<<"Value at Position 3 is: "<<getNth(head,3)<<endl;
+    
+    printNthFromLast(head,5);
     return 0; 
 }
