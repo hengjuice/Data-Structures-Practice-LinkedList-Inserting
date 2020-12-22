@@ -196,11 +196,11 @@ void printMiddle(Node* head){
     When the fast pointer reaches the end slow pointer will reach the middle of the linked list.*/
     Node* slow = head;
     Node* fast = head;
-    while(temp!=NULL && temp->next !=NULL){
+    while(fast!=NULL && fast->next !=NULL){
         fast = fast->next->next;
         slow = slow->next;
     }
-    cout<<slow->data<<endl;
+    cout<<"Middle Node is: "<<slow->data<<endl;
     return;
 }
 
